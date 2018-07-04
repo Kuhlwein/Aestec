@@ -8,18 +8,12 @@ public interface Plate {//extends Iterable<Point> {
     void remove(int x, int y);
     Integer get(int x, int y);
 
+    void accelerate(int x, int y);
+    void move();
 
 
     //void expand();
-
-    //boolean contains(int x,int y);
-
-    //void move();
-
     //int size();
-
     //List<Point> getOverlapWith(Plate plate);
-
     //int getAge();
-
 }
