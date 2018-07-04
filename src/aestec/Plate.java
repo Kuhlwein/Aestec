@@ -1,8 +1,8 @@
 package aestec;
 
-//import java.util.List;
+import java.awt.*;
 
-public interface Plate {//extends Iterable<Point> {
+public interface Plate extends Iterable<Point> {
 
     void set(int x, int y,int value);
     void remove(int x, int y);

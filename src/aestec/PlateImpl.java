@@ -2,6 +2,7 @@ package aestec;
 
 import java.awt.*;
 import java.util.HashMap;
+import java.util.Iterator;
 
 public class PlateImpl implements Plate {
     private int xdim, ydim, vx, vy, dx, dy;
@@ -44,4 +45,21 @@ public class PlateImpl implements Plate {
         dx+=vx; dy+=vy;
     }
 
+    @Override
+    public Iterator<Point> iterator() {
+        return new Iterator<Point>() {
+            Iterator<Point> internalIterator = heightmap.keySet().iterator();
+            Point nextPoint;
+            @Override
+            public boolean hasNext() {
+                return internalIterator.hasNext();
+            }
+
+            @Override
+            public Point next() {
+                nextPoint = internalIterator.next();
+                return new Point(Math.floorMod(nextPoint.x+dx,xdim),Math.floorMod(nextPoint.y+dy,ydim));
+            }
+        };
+    }
 }
