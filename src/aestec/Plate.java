@@ -15,5 +15,5 @@ public interface Plate extends Iterable<Point> {
     //void expand();
     //int size();
     //List<Point> getOverlapWith(Plate plate);
-    //int getAge();
+    int getAge();
 }

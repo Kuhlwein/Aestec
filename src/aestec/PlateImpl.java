@@ -3,11 +3,12 @@ package aestec;
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Random;
 
 public class PlateImpl implements Plate {
-    private int xdim, ydim, vx, vy, dx, dy;
+    private int xdim, ydim, vx, vy, dx, dy, age;
     private HashMap<Point,Integer> heightmap;
-
+    private static Random rand = new Random(0);
     private Point transform(int x,int y) {
         return new Point(Math.floorMod(x-dx,xdim),Math.floorMod(y-dy,ydim));
     }
@@ -15,6 +16,8 @@ public class PlateImpl implements Plate {
     public PlateImpl(int xdim, int ydim) {
         this.xdim=xdim; this.ydim=ydim;
         heightmap = new HashMap<>();
+
+        age=rand.nextInt(50);
     }
 
     @Override
@@ -43,6 +46,12 @@ public class PlateImpl implements Plate {
     @Override
     public void move() {
         dx+=vx; dy+=vy;
+        age++;
+    }
+
+    @Override
+    public int getAge() {
+        return age;
     }
 
     @Override

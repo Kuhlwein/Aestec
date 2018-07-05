@@ -7,4 +7,6 @@ public interface Lithosphere extends Iterable<Plate> {
     int getYDim();
 
     int getNumberOfPlates();
+    void updateplates();
+
 }
