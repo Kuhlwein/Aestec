@@ -1,25 +1,22 @@
 package aestec;
 
-//import java.util.List;
+import java.awt.*;
 
-public interface Plate {//extends Iterable<Point> {
+public interface Plate extends Iterable<Point> {
 
     void set(int x, int y,int value);
     void remove(int x, int y);
     Integer get(int x, int y);
 
+    void accelerate(double x, double y);
+    void move();
 
+    double getvx();
+    double getvy();
 
-    //void expand();
-
-    //boolean contains(int x,int y);
-
-    //void move();
-
-    //int size();
-
-    //List<Point> getOverlapWith(Plate plate);
-
-    //int getAge();
+    void expand();
+    Plate split();
+    int size();
+    int getAge();
 
 }
